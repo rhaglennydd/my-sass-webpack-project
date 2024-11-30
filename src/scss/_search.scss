@@ -1,0 +1,62 @@
+@use "functions";
+@use "mixins";
+
+:root .search {
+
+    &__form-results {
+        padding : 1.875rem 0;
+    }
+
+    &-form {
+        position        : relative;
+        display         : flex;
+        justify-content : center;
+        max-width       : functions.px-to-rem(340);
+        margin          : 0 auto;
+
+        .search-field {
+            font-weight   : 400;
+            width         : 100%;
+            height        : functions.px-to-rem(56);
+            padding       : 0 functions.px-to-rem(10);
+            color         : var(#{functions.var-name("color-black")});
+            border        : 1px solid var(#{functions.var-name("color-gray")});
+            border-radius : functions.px-to-rem(3);
+            background    : transparent;
+            box-shadow    : none;
+
+            &:focus {
+                box-shadow : 0 0 0 var(--bs-focus-ring-width) var(--bs-focus-ring-color);
+            }
+        }
+    }
+
+    &__results {
+        margin-top : 1.5rem;
+    }
+
+    &__post {
+        padding    : 1rem 0;
+        border-top : 1px solid var(#{functions.var-name("color-orange")});
+
+        &:last-child {
+            border-bottom : 1px solid var(#{functions.var-name("color-orange")});
+        }
+
+        &-grid {
+            display : grid;
+            row-gap : 1.25rem;
+
+            @include mixins.bp("md") {
+                align-items           : center;
+                justify-content       : space-between;
+                column-gap            : 1.5rem;
+                grid-template-columns : repeat(2, auto);
+            }
+        }
+
+        &-title {
+            margin-bottom : 0.5em;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+@use "functions";
+@use "mixins";
+@use "variables";
+
+:focus,
+:focus-visible {
+    outline    : 0;
+    box-shadow : 0 0 0 var(--bs-focus-ring-width) var(--bs-focus-ring-color);
+}
+
+a {
+    text-decoration : none;
+
+    &:active,
+    &:focus,
+    &:hover {
+        text-decoration : underline;
+    }
+}
+
+blockquote {
+    font-style : normal;
+
+    & > :last-child {
+        margin-bottom : 0;
+    }
+}
+
+hr {
+    max-width    : 100%;
+    margin-right : auto;
+    margin-left  : auto;
+    opacity      : 1;
+    border-color : rgba(var(#{functions.var-name("color-gray-rgb")}), 0.3);
+}
+
+iframe {
+    max-width : 100%;
+
+    &[src*="vimeo.com"],
+    &[src*="youtube.com"],
+    &[src*="youtube-nocookie.com"] {
+        height       : auto;
+        aspect-ratio : 16 / 9;
+    }
+
+    @at-root .ratio #{&} {
+        height       : 100%;
+        aspect-ratio : unset;
+    }
+}
+
+img, svg {
+    max-width : 100%;
+    height    : auto;
+}
+
+ol,
+ul {
+    padding : 0 0 0 2.5rem;
+}
+
+ol {
+    list-style : decimal;
+}
+
+ul {
+    list-style : disc;
+}
+
+ol > li,
+ul > li {
+    list-style : inherit;
+
+    &:where(:not(:last-child)),
+    &:where(:not(:last-child)) {
+        margin-bottom : 0.5rem;
+    }
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+    margin-top : 0.5rem;
+}
+
+p {
+    margin-bottom : 1em;
+}
+
+.table-wrap {
+    overflow-x                 : auto;
+    -webkit-overflow-scrolling : touch;
+}
+
+table {
+    width           : auto;
+    margin          : 0 0 1rem;
+    table-layout    : auto;
+    border-collapse : collapse;
+
+    th, td {
+        vertical-align : top;
+    }
+}
+
+video {
+    vertical-align : bottom;
+}

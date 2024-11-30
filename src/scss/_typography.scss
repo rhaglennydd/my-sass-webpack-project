@@ -1,0 +1,81 @@
+@use "functions";
+@use "mixins";
+@use "variables";
+
+body {
+    font-family : var(--bs-body-font-family);
+    font-size   : var(--bs-body-font-size);
+    font-weight : var(--bs-body-font-weight);
+    line-height : var(--bs-body-line-height);
+}
+
+b, strong {
+    font-weight : 700;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight    : 600;
+    clear          : both;
+    margin-bottom  : 0.5em;
+    letter-spacing : 0;
+    text-transform : none;
+
+    a {
+        color : inherit;
+    }
+}
+
+h1, .h1 {
+    font-size     : functions.px-to-rem(28);
+    line-height   : calc(50 / 42);
+    margin-bottom : calc(4em / 42);
+
+    @include mixins.bp("lg") {
+        font-size : functions.px-to-rem(42);
+    }
+}
+
+h2, .h2 {
+    font-size     : 1.5rem;
+    line-height   : calc(43 / 36);
+    margin-bottom : calc(20em / 36);
+
+    @include mixins.bp("lg") {
+        font-size : functions.px-to-rem(36);
+    }
+}
+
+.underline {
+    &,
+    &--center {
+        position       : relative;
+        padding-bottom : 1.5rem;
+
+        &::after {
+            position         : absolute;
+            bottom           : 0;
+            width            : 4.5rem;
+            height           : 0.3125rem;
+            content          : "";
+            border-radius    : 0;
+            background-color : var(#{functions.var-name("color-orange")});
+        }
+    }
+
+    &--center {
+        text-align : center;
+
+        &::after {
+            left      : 50%;
+            transform : translateX(-50%);
+        }
+    }
+
+    &::after {
+        left : 0;
+    }
+}
+
+p, dl, ol, ul {
+    margin-bottom : 1em;
+}

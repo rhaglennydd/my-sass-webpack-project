@@ -1,0 +1,38 @@
+{
+    "name"           : "@rhaglennydd/my-sass-webpack-project",
+    "version"        : "1.0.0",
+    "description"    : "",
+    "author"         : "rhaglennydd",
+    "license"        : "ISC",
+    "browserslist"   : [
+        "> 1%"
+    ],
+    "dependencies"   : {
+        "bootstrap": "^5.3"
+    },
+    "devDependencies": {
+        "autoprefixer"                : "^10.4",
+        "css-loader"                  : "^7.1",
+        "css-minimizer-webpack-plugin": "^7.0",
+        "file-loader"                 : "^6.2",
+        "mini-css-extract-plugin"     : "^2.9",
+        "mini-svg-data-uri"           : "^1.4",
+        "postcss-loader"              : "^8.1",
+        "rimraf"                      : "^5.0",
+        "sass"                        : "^1.81",
+        "sass-loader"                 : "^16.0",
+        "style-loader"                : "^4.0",
+        "svgo-loader"                 : "^4.0",
+        "url-loader"                  : "^4.1",
+        "webpack"                     : "^5.96",
+        "webpack-assets-manifest"     : "^5.2",
+        "webpack-bundle-analyzer"     : "^4.10",
+        "webpack-cli"                 : "^5.1",
+        "webpack-dev-server"          : "^5.1"
+    },
+    "scripts"        : {
+        "clean:output": "rimraf dist",
+        "build"       : "npm run clean:output && webpack --config webpack.config.production.js --mode production",
+        "serve"       : "npm run clean:output && webpack serve --config webpack.config.development.js --mode development"
+    }
+}

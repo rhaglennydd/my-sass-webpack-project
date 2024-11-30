@@ -1,0 +1,56 @@
+@use "functions";
+@use "variables";
+
+.bg-color-current {
+    background-color : currentColor !important;
+}
+
+.bg-color-inherit {
+    background-color : inherit !important;
+}
+
+.bg-color-transparent {
+    background-color : transparent !important;
+}
+
+.border-color-current {
+    border-color : currentColor !important;
+}
+
+.border-color-inherit {
+    border-color : inherit !important;
+}
+
+.border-color-transparent {
+    border-color : transparent !important;
+}
+
+.color-current {
+    color : currentColor !important;
+}
+
+.color-inherit {
+    color : inherit !important;
+}
+
+@each $color-name, $color-val in variables.$colors {
+    .bg-color-#{$color-name} {
+        background-color : var(#{functions.var-name("color-" + $color-name)}) !important;
+    }
+
+    .border-color-#{$color-name} {
+        border-color : var(#{functions.var-name("color-" + $color-name)}) !important;
+    }
+
+    .color-#{$color-name} {
+        color : var(#{functions.var-name("color-" + $color-name)}) !important;
+    }
+
+    .fill-#{$color-name} {
+        fill : var(#{functions.var-name("color-" + $color-name)}) !important;
+    }
+
+    .stroke-#{$color-name} {
+        stroke : var(#{functions.var-name("color-" + $color-name)}) !important;
+    }
+}

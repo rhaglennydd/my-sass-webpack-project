@@ -1,0 +1,100 @@
+@use "sass:map";
+@use "functions";
+@use "mixins";
+@use "variables";
+
+#masthead {
+    .navbar {
+        position                       : absolute;
+        z-index                        : 99;
+        top                            : 0;
+        left                           : 0;
+        display                        : none;
+        width                          : 50%;
+        min-width                      : functions.px-to-rem(300);
+        max-width                      : functions.px-to-rem(340);
+        height                         : 100%;
+        padding-top                    : functions.px-to-rem(5);
+        border-bottom                  : functions.px-to-rem(6) solid var(#{functions.var-name("color-orange")});
+        background-color               : var(#{functions.var-name("color-gray")});
+        --bs-navbar-active-color       : var(#{functions.var-name("color-orange")});
+        --bs-navbar-brand-color        : var(#{functions.var-name("color-orange")});
+        --bs-navbar-brand-hover-color  : var(#{functions.var-name("color-orange")});
+        --bs-navbar-brand-margin-end   : 0;
+        --bs-navbar-brand-padding-y    : 0;
+        --bs-navbar-color              : var(#{functions.var-name("color-black")});
+        --bs-navbar-hover-color        : var(#{functions.var-name("color-orange")});
+        --bs-navbar-nav-link-padding-x : 0;
+
+        &-menu {
+            position     : relative;
+            padding-left : functions.px-to-rem(15);
+
+            @include mixins.bp("md") {
+                padding-left : functions.px-to-rem(30);
+            }
+
+            @include mixins.bp("lg") {
+                padding-left : functions.px-to-rem(50);
+            }
+        }
+
+        &-nav {
+            --bs-nav-link-font-weight : 400;
+            --bs-nav-link-padding-y   : 0;
+            --bs-nav-link-color       : var(--bs-navbar-color);
+            --bs-nav-link-hover-color : var(--bs-navbar-hover-color);
+
+            > .nav-item {
+                border-bottom : 1px solid var(#{functions.var-name("color-gray")});
+            }
+
+            .nav-item {
+                position : relative;
+                margin   : 0;
+                padding  : functions.px-to-rem(10) 0;
+
+                .nav-link,
+                .dropdown-item {
+                    font-weight     : var(--bs-nav-link-font-weight);
+                    line-height     : functions.px-to-rem(30);
+                    display         : block;
+                    transition      : none;
+                    text-decoration : none;
+                }
+
+                .nav-link {
+                    &:active {
+                        color : var(--bs-navbar-active-color);
+                    }
+                }
+
+                .dropdown-toggle::after {
+                    display : none;
+                }
+            }
+
+            .dropdown-item {
+                white-space : normal;
+            }
+
+            .dropdown-menu {
+                padding-right                   : 0;
+                --bs-dropdown-bg                : transparent;
+                --bs-dropdown-border-radius     : 0;
+                --bs-dropdown-border-width      : 0;
+                --bs-dropdown-color             : var(#{functions.var-name("color-black")});
+                --bs-dropdown-item-padding-x    : 0;
+                --bs-dropdown-item-padding-y    : 0;
+                --bs-dropdown-link-active-bg    : transparent;
+                --bs-dropdown-link-active-color : var(#{functions.var-name("color-orange")});
+                --bs-dropdown-link-color        : var(#{functions.var-name("color-black")});
+                --bs-dropdown-link-hover-bg     : transparent;
+                --bs-dropdown-link-hover-color  : var(#{functions.var-name("color-orange")});
+                --bs-dropdown-min-width         : 100%;
+                --bs-dropdown-padding-x         : #{functions.px-to-rem(15)};
+                --bs-dropdown-padding-y         : 0;
+            }
+        }
+    }
+}

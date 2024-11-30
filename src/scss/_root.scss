@@ -1,0 +1,26 @@
+@use "variables";
+@use "functions";
+@use "mixins";
+@use "bootstrap/scss/_functions" as twb;
+
+:root {
+    @each $color-name, $color-val in variables.$colors {
+        #{functions.var-name("color-" + $color-name)}         : #{$color-val};
+        #{functions.var-name("color-" + $color-name) + "-rgb"}: #{twb.to-rgb($color-val)}
+    }
+
+    --bs-body-bg              : var(#{functions.var-name("color-white")});
+    --bs-body-bg-rgb          : twb.to-rgb(var(#{functions.var-name("color-white")}));
+    --bs-body-color           : var(#{functions.var-name("color-black")});
+    --bs-body-color-rgb       : twb.to-rgb(var(#{functions.var-name("color-black")}));
+    --bs-body-line-height     : calc(4 / 3);
+    --bs-border-color         : var(#{functions.var-name("color-orange")});
+    --bs-border-radius        : #{functions.px-to-rem(22)};
+    --bs-box-shadow           : 0 3px 6px rgba(var(#{functions.var-name("color-dark-orange-rgb")}), 0.16);
+    --bs-focus-ring-color     : rgba(var(#{functions.var-name("color-orange-rgb")}), 0.25);
+    --bs-heading-color        : var(#{functions.var-name("color-orange")});
+    --bs-link-color           : var(#{functions.var-name("color-orange")});
+    --bs-link-color-rgb       : var(#{functions.var-name("color-orange-rgb")});
+    --bs-link-hover-color     : var(#{functions.var-name("color-orange")});
+    --bs-link-hover-color-rgb : var(#{functions.var-name("color-orange-rgb")});
+}

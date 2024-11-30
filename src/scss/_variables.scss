@@ -1,0 +1,34 @@
+@use "sass:map";
+
+$prefix               : my-sass-webpack-project;
+$colors               : (
+    "black" : #000,
+    "blue" : #0084ca,
+    "gray" : #707070,
+    "orange" : #ff9e1b,
+    "white" : #fff,
+);
+
+$grid-breakpoints     : (
+    "xxs" : 0,
+    "xs" : 480px,
+    "sm" : 576px,
+    "md" : 768px,
+    "lg" : 992px,
+    "xl" : 1200px,
+    "desk-sm": 1400px,
+    "desk-md": 1600px,
+    "desk-lg": 1920px,
+    "desk-xl": 2560px,
+);
+$grid-gutter-width    : 2rem;
+$container-max-widths : (
+    "xs" : 432px,
+    "sm" : 518px,
+    "md" : 690px,
+    "lg" : 892px,
+    "xl" : 1080px,
+    "desk-sm" : 1120px,
+    "desk-md" : 1280px,
+    "desk-lg" : 1522px,
+);

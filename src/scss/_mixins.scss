@@ -1,0 +1,20 @@
+@use "bootstrap/scss/bootstrap" as twb;
+@use "functions";
+
+@mixin bp($breakpoint, $breakpoints: twb.$grid-breakpoints) {
+    @include twb.media-breakpoint-up($breakpoint, $breakpoints) {
+        @content;
+    }
+}
+
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    @include optional-at-root("::placeholder") {
+        @content;
+    }
+}

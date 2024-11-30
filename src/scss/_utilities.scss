@@ -1,0 +1,62 @@
+@use "mixins";
+
+@include mixins.bp("xs") {
+    .container {
+        padding : 0;
+    }
+}
+
+@include mixins.bp("sm") {
+    .container-sm {
+        padding : 0;
+    }
+}
+
+@include mixins.bp("md") {
+    .container-md {
+        padding : 0;
+    }
+}
+
+@include mixins.bp("lg") {
+    .container-lg {
+        padding : 0;
+    }
+}
+
+@include mixins.bp("xl") {
+    .container-xl {
+        padding : 0;
+    }
+}
+
+@include mixins.bp("xxl") {
+    .container-xxl {
+        padding : 0;
+    }
+}
+
+.hover-zoom {
+    display  : block;
+    overflow : hidden;
+
+    img {
+        transition : transform 0.3s ease-in-out;
+
+        @at-root .hover-zoom:hover #{&} {
+            transform : scale(1.1);
+        }
+    }
+}
+
+.js {
+    .loading {
+        transition  : opacity 0.3s ease-in-out;
+        opacity     : 0;
+        will-change : opacity;
+
+        &.loaded {
+            opacity : 1;
+        }
+    }
+}
