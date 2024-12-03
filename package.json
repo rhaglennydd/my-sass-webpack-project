@@ -24,7 +24,7 @@
         "style-loader"                : "^4.0",
         "svgo-loader"                 : "^4.0",
         "url-loader"                  : "^4.1",
-        "webpack"                     : "^5.96",
+        "webpack"                     : "^5.97",
         "webpack-assets-manifest"     : "^5.2",
         "webpack-bundle-analyzer"     : "^4.10",
         "webpack-cli"                 : "^5.1",
